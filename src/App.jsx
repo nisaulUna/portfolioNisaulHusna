@@ -1,157 +1,320 @@
-import DataImage from "./data";
-import {listTools, listProyek} from "./data";
+import Image from "./data";
+import { TypeAnimation } from "react-type-animation";
+
 
 function App() {
   return (
     <>
-      <div className="hero grid md:grid-cols-2 grid-cols-1 items-center pt-10 xl:gap-0 gap-6">
-        <div>
-          <div className="flex items-center gap-3 mb-6 bg-zinc-800 w-fit p-4 rounded-2xl">
-            <img src={DataImage.HeroImage} alt="Hero Image" className="w-10 rounded-md" loading="lazy"/>
-            <q>Kode yang indah, lahir dari ketekunan. 😎</q>
-          </div>
+      <div className="home" id="home">
+        <div className="grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-10 mt-15">
 
-          <h1 className="text-5xl/tight font-bold mb-6">
-            Hi, Saya Diky Prayoga
-          </h1>
+          {/* Bagian kiri */}
+          <div className="min-h-80 rounded-2xl border-[3px] border-zinc-900 bg-white p-10 lg:p-12 shadow-[4px_5px_0px_#18181b]">
 
-          <p className="text-base/loose mb-6 opacity-50">
-            Saya mempunyai ketertarikan dalam bidang Programming dan Designer,
-            terutama pada pembuatan Website dan Desain seperti Poster, Pamflet
-            serta Banner, ketertarikan pada bidang ini sudah berlangsung lebih
-            dari 4 Tahun untuk semua Bidang.
-          </p>
+            <span className="font-mono text-md font-semibold tracking-widest uppercase text-zinc-500">
+              Tangerang Selatan, Banten
+            </span>
 
-          <div className="flex items-center sm:gap-4 gap-2">
-            <a href="#" className="bg-violet-700 p-4 rounded-2xl hover:bg-violet-600" >
-              Download CV <i className="ri-download-line ri-lg"></i>
-            </a>
-
-            <a href="#" className="bg-zinc-700 p-4 rounded-2xl hover:bg-zinc-600">
-              Lihat Proyek <i className="ri-arrow-down-line ri-lg"></i>
-            </a>
-          </div>
-        </div>
-
-        <img src={DataImage.HeroImage} alt="Hero Image" className="w-[500px] md:ml-auto" loading="lazy"/>
-      </div>
-
-      {/* tentang */}
-
-      <div className="tentang mt-32 py-10">
-        <div className="xl:w-2/3 lg:w-3/4 w-full mx-auto p-7 bg-zinc-800 rounded-lg">
-
-          <img src={DataImage.HeroImage} alt="Image" className="w-12 rounded-md mb-10 sm:hidden" loading="lazy" />
-
-          <p className="text-base/loose mb-10">
-            Hi, perkenalkan saya Diky Prayoga, seorang Full Stack Web Developer dan
-            Designer untuk UI/UX Design maupun Product Digital, Saya percaya bahwa
-            desain dan fungsionalitas harus berjalan beriringan, sehingga setiap
-            proyek yang saya kembangkan tidak hanya terlihat menarik tetapi juga
-            memberikan pengalaman pengguna yang optimal.
-          </p>
-
-          <div className="flex items-center justify-between">
-            <img src={DataImage.HeroImage} alt="Image" className="w-12 rounded-md sm:block hidden" loading="lazy"/>
-
-            <div className="flex items-center gap-6">
-              <div>
-                <h1 className="text-4xl mb-1">
-                  45<span className="text-violet-500">+</span>
-                </h1>
-                <p>Proyek Selesai</p>
-              </div>
-
-              <div>
-                <h1 className="text-4xl mb-1">
-                  4<span className="text-violet-500">+</span>
-                </h1>
-                <p>Tahun Pengalaman</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="tools mt-32">
-          <h1 className="text-4xl/snug font-bold mb-4">
-            Tools yang dipakai
-          </h1>
-
-          <p className="xl:w-2/5 lg:w-2/4 md:w-2/3 sm:w-3/4 w-full text-base/loose opacity-50">
-            Berikut ini beberapa tools yang biasa saya pakai untuk pembuatan Website ataupun Design
-          </p>
-
-          <div className="tools-box mt-14 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
-            {listTools.map((tool) => (
-              <div className="flex items-center gap-2 p-3 border border-zinc-600 rounded-md hover:bg-zinc-800 group" key={tool.id} >
-                
-                <img src={tool.gambar} alt="Tools Image" className="w-14 bg-zinc-800 p-1 group-hover:bg-zinc-900" loading="lazy"/>
-
-                <div>
-                  <h4 className="font-bold">{tool.nama}</h4>
-                  <p className="opacity-50">{tool.ket}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* proyek */}
-        <div className="proyek mt-32 py-10">
-          <h1 className="text-center text-4xl font-bold mb-2">Proyek</h1>
-          <p className="text-base/loose text-center opacity-50">Berikut ini beberapa proyek yang telah saya kerjakan.</p>
-
-          <div className="proyek-box mt-14 grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
-            {listProyek.map((proyek) => (
-              <div key={proyek.id} className="p-4 bg-zinc-800 rounded-md">
-                <img src={proyek.gambar} alt="Proyek Image" loading="lazy" />
-                <div>
-                  <h1 className="text-2xl font-bold my-4">{proyek.nama}</h1>
-                  <p className="text-base/loose mb-4">{proyek.desk}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {proyek.tools.map((tool, index) => (
-                      <p className="py-1 px-3 border-zinc-500 bg-zinc-600 rounded-md font-semibold" key={index}>{tool}</p>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-8 text-center">
-                  <a href="#" className="bg-violet-700 p-3 rounded-lg block border border-zinc-600 hover:bg-violet-600">Lihat Website</a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Kontak */}
-      <div className="kontak mt-32 sm:p-10 p-0">
-        <h1 className="text-4xl mb-2 font-bold text-center">Kontak</h1>
-        <p className="text-base/loose text-center mb-10 opacity-50">Mari terhbung dengan saya!</p>
-
-        <form action="https://formsubmit.co/nisaulhusnaaa@gmail.com" method="POST" className="bg-zinc-800 p-10 sm:w-fit w-full mx-auto rounded-md" autoComplete="off">
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-2">
-              <label className="font-semibold" htmlFor="nama">Nama Lengkap</label>
-              <input type="text" name="nama" id="nama" placeholder="Masukkan Nama ..." required className="border border-zinc-500 p-2 rounded-md" />
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <label className="font-semibold" htmlFor="email">Email</label>
-              <input type="email" name="email" id="email" placeholder="Masukkan Email ..." required className="border border-zinc-500 p-2 rounded-md" />
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <label className="font-semibold" htmlFor="pesan">Pesan</label>
-              <textarea name="pesan" id="pesan" cols="45" rows="7" placeholder="Pesan ..." required className="border border-zinc-500 p-2 rounded-md"></textarea>
-            </div>
+            <h1 className="text-6xl md:text-6xl font-extrabold text-zinc-900 mb-2 mt-4">
+              Nisaul Husna
+            </h1>
 
             <div>
-              <button type="submit" className="bg-violet-700 p-3 rounded-lg w-full cursor-pointer block border border-zinc-600 hover:bg-violet-600">Kirim Pesan</button>
+              <TypeAnimation
+                sequence={[
+                  "Web Developer",
+                  2000,
+                  "AI Engineer",
+                  2000,
+                ]}
+                wrapper="Span"
+                speed={50}
+                deletionSpeed={65}
+                cursor={true}
+                repeat={Infinity}
+                className="text-2xl md:text-4xl font-bold text-[#4CAF50]"
+              />
+            </div>
+
+            <p className=" text-zinc-600 md:text-md mt-6">
+              Informatics graduate passionate about web development and building innovative digital solutions. Experienced in software development, API integration, and database management.
+            </p>
+
+            
+            <hr className="border-t border-gray-400 my-6" />
+  
+            <div className="grid grid-cols-2 gap-2 mt-4">
+              <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href="/cv.pdf"
+                    download
+                    className="flex items-center gap-2 rounded-xl border-2 border-zinc-900 bg-pink-300 px-4 py-2 text-sm font-bold text-zinc-900 transition-all duration-200 hover:-translate-y-1 hover:bg-pink-400 hover:shadow-[3px_3px_0px_#18181b]"
+                  >
+                    <span className="hidden sm:inline">Download CV</span>
+                    <i className="ri-download-line text-lg"></i>
+                  </a>
+
+                  <a
+                    href="/cv.pdf"
+                    download
+                    className="flex items-center gap-2 rounded-xl border-2 border-zinc-900 bg-[#FFE89A] px-4 py-2 text-sm font-bold text-zinc-900 transition-all duration-200 hover:-translate-y-1 hover:bg-[#FACC15] hover:shadow-[3px_3px_0px_#18181b]"
+                  >
+                    <span className="hidden sm:inline">Contact Me</span>
+                    <i className="ri-arrow-right-up-line text-2xl"></i>
+                  </a>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 justify-end">
+                  <a
+                    href="https://wa.me/6281315225350"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex rounded-xl border-2 border-zinc-900 bg-[#A8F0C6] text-zinc-900 px-4 py-2 transition-all duration-200 hover:-translate-y-1 hover:bg-[#25D366] hover:shadow-[3px_3px_0px_#18181b]"
+                  >
+                    <i className="ri-whatsapp-fill text-2xl"></i>
+                  </a>
+
+                  <a
+                    href="/cv.pdf"
+                    download
+                    className="flex rounded-xl border-2 border-zinc-900 bg-[#B9E2FF] text-zinc-900 px-4 py-2 transition-all duration-200 hover:-translate-y-1 hover:bg-[#60A5FA] hover:shadow-[3px_3px_0px_#18181b]"
+                  >
+                    <i className="ri-linkedin-fill text-2xl"></i>
+                  </a>
+
+                  <a
+                    href="/cv.pdf"
+                    download
+                    className="flex rounded-xl border-2 border-zinc-900 bg-[#D9C5FF] text-zinc-900 px-4 py-2 transition-all duration-200 hover:-translate-y-1 hover:bg-[#A78BFA] hover:shadow-[3px_3px_0px_#18181b]"
+                  >
+                    <i className="ri-github-fill text-2xl"></i>
+                  </a>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bagian kanan */}
+          <div className="relative h-105">
+
+            <div className="absolute inset-x-0 bottom-0 h-[85%] matcha-gradient rounded-2xl border-[3px] border-zinc-900 shadow-[4px_5px_0px_#18181b]"></div>
+            <img
+              src={Image.Foto}
+              alt="Profile"
+              className="absolute -bottom-1.25 -left-8 z-10 h-[110%] w-auto max-w-none object-contain object-bottom"
+            />
+          </div>
+        </div>
+
+        <a className="flex mt-15 justify-center items-center gap-5 cursor-pointer bounce-interval" href="#about">
+          <span className="font-mono text-sm font-semibold tracking-widest uppercase text-zinc-400 border-b border-zinc-400 hover:text-zinc-600">
+            Scroll to explore
+          </span>
+          <i className="ri-arrow-down-long-line text-md text-zinc-400 hover:text-zinc-600"></i>
+        </a>
+      </div>
+
+      <div className="about mt-15" id="about">
+        <div className="grid grid-cols-[1fr_6fr] mb-6 sm:gap-6">
+          <h1 className="text-4xl md:text-4xl font-extrabold text-zinc-900">
+            About
+          </h1>
+          <hr className="border-t border-zinc-900 my-6" />
+        </div>
+
+        <div className="rounded-2xl border-[3px] border-zinc-900 bg-white shadow-[4px_5px_0px_#18181b] grid grid-cols-[2fr_1fr]">
+          <div className="p-10 lg:p-12">
+            <div className="flex justify-between">
+              <div>
+                <span className="text-2xl font-extrabold text-zinc-900 mt-4">
+                  Bachelor's Degree in Computer Science
+                </span>
+
+                <p className=" text-zinc-600 md:text-md -mt-1">
+                  Universitas Pembangunan Nasional Veteran Jakarta.
+                </p>
+
+                <span className="font-mono text-xs font-semibold tracking-widest  text-zinc-400 uppercase">
+                  August 2022 - september 2026
+                </span>
+              </div>
+
+              <div>
+                <a
+                  href="/cv.pdf"
+                      download
+                      className="flex items-center gap-2 rounded-xl border-2 border-zinc-900 bg-zinc-100 px-4 py-2 text-sm font-bold text-zinc-900 transition-all duration-200 hover:-translate-y-1 hover:bg-white hover:shadow-[3px_3px_0px_#18181b]"
+                    >
+                    <span className="hidden sm:inline">PDDIKTI</span>
+                    <i className="ri-arrow-right-up-line text-2xl"></i>
+                </a>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full my-6">
+              <div className="flex rounded-2xl border-[3px] border-zinc-900 bg-[#FFFFF0] shadow-[2px_3px_0px_#18181b] p-3 px-5 gap-5">
+                <div>
+                  <i className="ri-graduation-cap-fill text-2xl rounded-md border-2 border-zinc-900 text-zinc-900 p-1"></i>
+                </div>
+                <div className="grid grid-cols">
+                  <span className="font-mono text-sm font-semibold tracking-widest  text-zinc-500">
+                    GPA
+                  </span>
+                  <span className="text-md font-semibold tracking-widest  text-zinc-900">
+                    3.84/4.0
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex rounded-2xl border-[3px] border-zinc-900 bg-[#FFFFF0] shadow-[2px_3px_0px_#18181b] p-3 px-5 gap-5">
+                <div>
+                  <i className="ri-book-open-line text-2xl p-1 rounded-md border-2 border-zinc-900 text-zinc-900"></i>
+                </div>
+                <div className="grid grid-cols">
+                  <span className="font-mono text-sm font-semibold tracking-widest  text-zinc-500">
+                      CREDITS
+                  </span>
+                  <span className="text-md font-semibold tracking-widest  text-zinc-900">
+                    154
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex rounded-2xl border-[3px] border-zinc-900 bg-[#FFFFF0] shadow-[2px_3px_0px_#18181b] p-3 px-5 gap-5">
+                <div>
+                  <i className="ri-medal-fill text-2xl p-1 rounded-md border-2 border-zinc-900 text-zinc-900"></i>
+                </div>
+                <div className="grid grid-cols">
+                  <span className="font-mono text-sm font-semibold tracking-widest  text-zinc-500">
+                    HONORS
+                  </span>
+                  <span className="text-md font-semibold tracking-widest  text-zinc-900">
+                    Cum Laude
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <hr className="border-t border-gray-400 my-6" />
+
+            <div className="flex justify-between">
+              <div className="grid grid-cols">
+                <span className="font-mono text-sm font-semibold tracking-widest  text-zinc-500">
+                    BIRTH
+                </span>
+                <span className="text-sm font-semibold tracking-widest  text-zinc-900">
+                  Palembang, 11 September 2004
+                </span>
+              </div>
+
+              <div className="grid grid-cols">
+                <span className="font-mono text-sm font-semibold tracking-widest text-zinc-500">
+                  CURRENT LOCATION
+                </span>
+                <span className="text-sm font-semibold tracking-widest  text-zinc-900">
+                  Tangerang Selatan
+                </span>
+              </div>
+
+              <div className="grid grid-cols">
+                <span className="font-mono text-sm font-semibold tracking-widest text-zinc-500">
+                  LANGUAGES
+                </span>
+                <span className="text-sm font-semibold tracking-widest  text-zinc-900">
+                  Indonesia, English
+                </span>
+              </div>
             </div>
           </div>
-        </form>
+
+          <div className="grid grid-rows-2 bg-[#FFE89A] rounded-r-2xl p-10 lg:p-12 gap-5">
+            <div className="flex rounded-2xl border-[3px] border-zinc-900 matcha-gradient shadow-[2px_3px_0px_#18181b] p-3 px-5 gap-5">
+              <div>
+                <i className="ri-briefcase-4-fill text-2xl p-1 rounded-md border-2 border-zinc-900 text-zinc-900"></i>
+              </div>
+              <div className="grid grid-cols-1 flex-1">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-mono text-sm font-semibold tracking-widest text-zinc-500 uppercase">
+                    experience
+                  </span>
+                  <a href="#experience" className="text-xs font-semibold text-zinc-500 hover:underline">
+                    View detail ↗
+                  </a>
+                </div>
+                <span className="text-sm font-semibold tracking-widest text-zinc-900">
+                  2 Internship
+                </span>
+              </div>
+            </div>
+
+            <div className="flex rounded-2xl border-[3px] border-zinc-900 matcha-gradient shadow-[2px_3px_0px_#18181b] p-3 px-5 gap-5">
+              <div>
+                <i className="ri-article-fill text-2xl p-1 rounded-md border-2 border-zinc-900 text-zinc-900"></i>
+              </div>
+              <div className="grid grid-cols-1 flex-1">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-mono text-sm font-semibold tracking-widest text-zinc-500 uppercase">
+                    publication
+                  </span>
+                  <a href="#publication" className="text-xs font-semibold text-zinc-500 hover:underline">
+                    View detail ↗
+                  </a>
+                </div>
+                <span className="text-sm font-semibold tracking-widest text-zinc-900">
+                  1 publication
+                </span>
+              </div>
+            </div>
+
+            <div className="flex rounded-2xl border-[3px] border-zinc-900 matcha-gradient shadow-[2px_3px_0px_#18181b] p-3 px-5 gap-5">
+              <div>
+                <i className="ri-apps-2-fill text-2xl p-1 rounded-md border-2 border-zinc-900 text-zinc-900"></i>
+              </div>
+              <div className="grid grid-cols-1 flex-1">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-mono text-sm font-semibold tracking-widest text-zinc-500 uppercase">
+                    Total projects
+                  </span>
+                  <a href="#projects" className="text-xs font-semibold text-zinc-500 hover:underline">
+                    View detail ↗
+                  </a>
+                </div>
+                <span className="text-sm font-semibold tracking-widest text-zinc-900">
+                  6 Projects
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div className="experience mt-15" id="experience">
+        <div className="grid grid-cols-[1fr_6fr] mb-6 sm:gap-6">
+          <h1 className="text-4xl md:text-4xl font-extrabold text-zinc-900">
+            Experience
+          </h1>
+          <hr className="border-t border-zinc-900 my-6" />
+        </div>
+        
+         <div className="inline-flex items-center gap-2 rounded-xl border-3 border-zinc-900 bg-zinc-100 px-4 py-2 text-sm font-bold text-zinc-900">
+            <i className="ri-briefcase-fill text-2xl"></i> 
+            <span className="hidden sm:inline">WORK EXPERIENCE</span>         
+         </div>
+
+          <div>
+            <div className="mt-10 ml-5">
+              <div className="flex bg-pink-300 w-5 h-5 border-2 border-zinc-900 rounded-full">
+                
+              </div>
+
+              <div>
+
+              </div>
+            </div>
+          </div>
+      </div>
+
+      
     </>
   );
 }
