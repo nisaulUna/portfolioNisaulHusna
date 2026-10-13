@@ -19,50 +19,30 @@ html {
     #FFE9B7
   );
   background-size: 300% 300%;
-  animation: matchaMove 9s ease infinite;
+  animation: pastelMove 9s ease infinite;
 }
 
-@keyframes matchaMove {
+.purple-yellow-gradient {
+  background: linear-gradient(
+    120deg,
+    #D8B4FE,
+    #F3D9FA,
+    #FFE9A8
+  );
+  background-size: 300% 300%;
+  animation: pastelMove 9s ease infinite;
+}
+
+/* ANIMATION */
+@keyframes pastelMove {
   0%, 100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
 }
-
-
-.strawberry-gradient {
-  background: linear-gradient(
-    120deg,
-    #FFD6E7,
-    #FFF0F5,
-    #E9D5FF
-  );
-}
-
-.minty-gradient {
-  background: linear-gradient(
-    120deg,
-    #C9F4E2,
-    #D8F3FF,
-    #E6E0FF
-  );
-}
-
-.strawberry-gradient,
-.minty-gradient {
-  background-size: 300% 300%;
-  animation: matchaMove 9s ease infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .strawberry-gradient,
-  .minty-gradient {
-    animation: none;
-  }
-}
-
 
 @keyframes bounceInterval {
   0%, 80%, 100% {
@@ -90,4 +70,22 @@ html {
   .bounce-interval {
     animation: none;
   }
+}
+
+.floating-text {
+  animation: floatingText 3s ease-in-out infinite;
+}
+
+@keyframes floatingText {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }

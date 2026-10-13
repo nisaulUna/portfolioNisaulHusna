@@ -1,5 +1,4 @@
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -12,6 +11,51 @@ const Navbar = () => {
     { nama: "Skills", link: "#skills" },
     { nama: "Contact", link: "#contact" },
   ];
+
+  const menuRef = useRef(null);
+
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [canScroll, setCanScroll] = useState(false);
+
+  const handleMenuScroll = () => {
+    const menu = menuRef.current;
+    if (!menu) return;
+
+    const maxScroll = menu.scrollWidth - menu.clientWidth;
+
+    setScrollProgress(
+      maxScroll > 0 ? menu.scrollLeft / maxScroll : 0
+    );
+  };
+
+  useEffect(() => {
+    const menu = menuRef.current;
+    if (!menu) return;
+
+    const checkMenuWidth = () => {
+      const isOverflowing = menu.scrollWidth > menu.clientWidth + 1;
+
+      setCanScroll(isOverflowing);
+
+      if (!isOverflowing) {
+        setScrollProgress(0);
+      } else {
+        handleMenuScroll();
+      }
+    };
+
+    checkMenuWidth();
+
+    const observer = new ResizeObserver(checkMenuWidth);
+    observer.observe(menu);
+
+    window.addEventListener("resize", checkMenuWidth);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", checkMenuWidth);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,7 +107,7 @@ const Navbar = () => {
           </a>
 
           {/* Menu Desktop */}
-          <ul className="hidden items-center gap-6 lg:flex">
+          <ul className="hidden items-center gap-6 md:flex">
             {menuItems.map((item) => {
               const isActive = activeSection === item.link.substring(1);
 
@@ -93,30 +137,70 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {/* Menu Mobile */}
-        <ul className="mt-3 flex flex-wrap justify-center gap-x-5 gap-y-2 border-t border-zinc-200 pt-3 lg:hidden">
-          {menuItems.map((item) => {
-            const isActive = activeSection === item.link.substring(1);
+       {/* MENU MOBILE */}
+        <div className="mt-3 border-t border-zinc-200 pt-3 md:hidden">
 
-            return (
-              <li key={item.nama}>
-                <a
-                  href={item.link}
-                  onClick={() => setActiveSection(item.link.substring(1))}
-                  aria-current={isActive ? "location" : undefined}
-                  className={`text-xs font-semibold underline-offset-4 transition-colors sm:text-sm ${
-                    isActive
-                      ? "text-green-600 underline"
-                      : "text-zinc-800 hover:text-green-600 hover:underline"
-                  }`}
-                >
-                  {item.nama}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+          {/* SCROLLABLE MENU */}
+          <ul
+            ref={menuRef}
+            onScroll={handleMenuScroll}
+            className={`
+              flex items-center gap-6
+              overflow-x-auto flex-nowrap
+              whitespace-nowrap scroll-smooth
+              [scrollbar-width:none]
+              [&::-webkit-scrollbar]:hidden
+              ${canScroll ? "justify-start" : "justify-center"}
+            `}
+          >
+            {menuItems.map((item) => {
+              const isActive =
+                activeSection === item.link.substring(1);
 
+              return (
+                <li key={item.nama} className="shrink-0">
+                  <a
+                    href={item.link}
+                    onClick={() =>
+                      setActiveSection(item.link.substring(1))
+                    }
+                    className={`text-sm font-semibold transition-colors ${
+                      isActive
+                        ? "text-green-600"
+                        : "text-zinc-800 hover:text-green-600"
+                    }`}
+                  >
+                    {item.nama}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* SMALL SCROLL INDICATOR */}
+          {canScroll && (
+            <div className="mt-4 flex items-center justify-center gap-2">
+
+              <div
+                className={`h-1 rounded-full transition-all duration-300 ${
+                  scrollProgress < 0.5
+                    ? "w-9 bg-[#3F956C]"
+                    : "w-2 bg-zinc-300"
+                }`}
+              ></div>
+
+              <div
+                className={`h-1 rounded-full transition-all duration-300 ${
+                  scrollProgress >= 0.5
+                    ? "w-9 bg-[#3F956C]"
+                    : "w-2 bg-zinc-300"
+                }`}
+              ></div>
+
+            </div>
+          )}
+
+        </div>
       </div>
     </nav>
   );
