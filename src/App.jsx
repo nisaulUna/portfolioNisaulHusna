@@ -88,7 +88,7 @@ function App() {
                     className="
                     flex h-11 w-full gap-2 md:px-2 lg:gap-4 items-center justify-center font-bold
                     rounded-xl border-2 border-zinc-900 text-zinc-900
-                    bg-pink-300 text-2xl
+                    bg-pink-200 text-2xl
                     shadow-[3px_3px_0px_#18181b]
                     transition-transform hover:-translate-y-1 hover:bg-[#F472B6]
                     "
@@ -104,7 +104,7 @@ function App() {
                     className="
                     flex h-11 w-full gap-2 lg:gap-4 items-center justify-center font-bold
                     rounded-xl border-2 border-zinc-900 text-zinc-900
-                    bg-[#FFE89A]  text-2xl
+                    bg-yellow-100 text-2xl
                     shadow-[3px_3px_0px_#18181b]
                     transition-transform hover:-translate-y-1 hover:bg-[#FACC15]
                     "

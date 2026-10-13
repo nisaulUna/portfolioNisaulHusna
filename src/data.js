@@ -24,7 +24,7 @@ import Darya4 from "/assets/experience/darya-4.jpeg";
 export const listExperience = [
   {
     id: 1,
-    color: "bg-pink-300",
+    color: "bg-pink-200",
     date: "JULY 2025 - OCTOBER 2025",
     company: "PT Bocorocco Entrepreneur Indonesia",
     position: "Programmer Intern",
@@ -52,7 +52,7 @@ export const listExperience = [
   },
   {
     id: 2,
-    color: "bg-[#FFE89A]",
+    color: "bg-yellow-100",
     date: "MAY 2025 - JUNE 2025",
     company: "BNI Java Jazz 2025",
     position: "Technical Support Volunteer",
@@ -78,7 +78,7 @@ export const listExperience = [
   },
   {
     id: 3,
-    color: "bg-[#A8F0C6]",
+    color: "bg-green-100",
     date: "SEPTEMBER 2024 - FEBRUARY 2025",
     company: "Darya-Varia Laboratoria Tbk",
     position: "Programmer Intern",
