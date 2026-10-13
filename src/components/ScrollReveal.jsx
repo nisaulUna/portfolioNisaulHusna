@@ -28,7 +28,7 @@ const ScrollReveal = ({ children, className = "", delay = 0 }) => {
       ref={ref}
       className={`${className} ${
         visible
-          ? "animate__animated animate__fadeInUp"
+          ? "animate__animated animate__fadeIn"
           : "opacity-0"
       }`}
       style={{

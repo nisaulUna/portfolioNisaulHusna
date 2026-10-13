@@ -26,7 +26,7 @@ const Footer = () => {
             <div className="flex flex-col justify-between gap-8">
 
                 <div>
-                <h2 className="text-5xl md:text-6xl font-extrabold text-yellow-700 mb-4">
+                <h2 className="text-5xl md:text-6xl font-extrabold text-pink-500 mb-4">
                     Let's Work Together!
                     <span className="ml-2">✦</span>
                 </h2>
@@ -43,11 +43,11 @@ const Footer = () => {
                     className="
                     mt-7 flex w-fit items-center gap-3
                     rounded-xl border-2 border-zinc-900
-                    bg-yellow-300 px-4 py-3
+                    bg-yellow-100 px-4 py-3
                     font-semibold text-zinc-900
                     shadow-[4px_4px_0px_#18181b]
                     transition-all duration-200
-                    hover:-translate-y-1
+                    hover:-translate-y-1 hover:bg-yellow-300
                     "
                 >
                     <i className="ri-mail-line text-2xl"></i>
@@ -73,7 +73,7 @@ const Footer = () => {
                     rounded-xl border-2 border-zinc-900
                     bg-[#A8F0C6] text-2xl
                     shadow-[3px_3px_0px_#18181b]
-                    transition-transform hover:-translate-y-1
+                    transition-transform hover:-translate-y-1 hover:bg-[#25D366]
                     "
                 >
                     <i className="ri-whatsapp-fill text-zinc-900"></i>
@@ -89,7 +89,7 @@ const Footer = () => {
                     rounded-xl border-2 border-zinc-900
                     bg-[#B9E0FF] text-2xl
                     shadow-[3px_3px_0px_#18181b]
-                    transition-transform hover:-translate-y-1
+                    transition-transform hover:-translate-y-1 hover:bg-[#60A5FA]
                     "
                 >
                     <i className="ri-linkedin-fill text-zinc-900"></i>
@@ -105,7 +105,7 @@ const Footer = () => {
                     rounded-xl border-2 border-zinc-900
                     bg-[#D9C5FF] text-2xl
                     shadow-[3px_3px_0px_#18181b]
-                    transition-transform hover:-translate-y-1
+                    transition-transform hover:-translate-y-1 hover:bg-[#A78BFA]
                     "
                 >
                     <i className="ri-github-fill text-zinc-900"></i>
@@ -270,7 +270,7 @@ const Footer = () => {
                     </a>
                 </div>
 
-                <div className="grid grid-cols-[1.5fr_1fr] justify-between">
+                <div className="grid grid-cols-[1.5fr_1.5fr] justify-between">
                     <div>
                         <h3 className="text-xl font-extrabold text-zinc-900">
                             Portfolio<span className="text-pink-500">.</span>
@@ -290,7 +290,7 @@ const Footer = () => {
                             bg-zinc-100 px-4 py-2
                             text-sm font-bold text-zinc-900
                             shadow-[3px_3px_0px_#18181b]
-                            transition-all hover:-translate-y-1
+                            transition-all hover:-translate-y-1 hover:bg-[#E4E4E7]
                         "
                         >
                         Back to Top

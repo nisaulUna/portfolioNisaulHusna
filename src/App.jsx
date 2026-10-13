@@ -3,6 +3,7 @@ import ScrollReveal from "./components/ScrollReveal";
 import { listExperience, listPublication, listProject, listSkills} from "./data";
 import { TypeAnimation } from "react-type-animation";
 import { useState } from "react";
+import { createPortal } from "react-dom";
 
 function App() {
   const [selectedPhotos, setSelectedPhotos] = useState([]);
@@ -24,12 +25,12 @@ function App() {
                 href="#start"
                 className="absolute left-7 md:left-12 top-1/2 z-20 flex -translate-y-1/2 flex-col items-start gap-2"
               >
-                <span className="floating-text text-2xl md:text-4xl font-extrabold leading-tight text-[#285943]">
+                <span className="text-2xl md:text-4xl font-extrabold leading-tight text-[#285943]">
                   Get to <br />
                   Know Me
                 </span>
 
-                <span className="flex items-center gap-1 rounded-xl border-2 border-zinc-900 bg-[#FFE89A] px-3 py-1 text-sm md:text-lg font-bold text-zinc-900 shadow-[2px_2px_0px_#18181b]">
+                <span className="flex items-center gap-1 rounded-xl border-2 border-zinc-900 bg-[#FFE89A] px-3 py-1 text-sm md:text-lg font-bold text-zinc-900 shadow-[2px_2px_0px_#18181b] transition-transform hover:-translate-y-1 hover:bg-[#FACC15]">
                   Explore More
                   <i className="ri-arrow-down-line"></i>
                 </span>
@@ -79,54 +80,88 @@ function App() {
             <hr className="border-t border-gray-400 my-5 md:my-6" />
   
             <div className="md:flex items-center gap-2 mt-5 justify-between">
-              <div className="flex flex-wrap items-center gap-1.5 md:gap-3">
-                  <a
+              <div className="grid grid-cols-2 items-center gap-2 md:gap-3">
+                <a
                     href="/cv.pdf"
                     download
-                    className="flex items-center gap-1 md:gap-2 rounded-xl border-2 border-zinc-900 bg-pink-300 px-2 md:px-4 py-2 text-sm font-bold text-zinc-900 transition-all duration-200 hover:-translate-y-1 hover:bg-pink-400 hover:shadow-[3px_3px_0px_#18181b]"
-                  >
+                    aria-label="CV"
+                    className="
+                    flex h-11 w-full gap-2 md:px-2 lg:gap-4 items-center justify-center font-bold
+                    rounded-xl border-2 border-zinc-900 text-zinc-900
+                    bg-pink-300 text-2xl
+                    shadow-[3px_3px_0px_#18181b]
+                    transition-transform hover:-translate-y-1 hover:bg-[#F472B6]
+                    "
+                >
                     <span className="text-sm md:text-base">Download CV</span>
-                    <i className="ri-download-line text-sm md:text-lg"></i>
-                  </a>
+                    <i className="ri-download-line text-sm md:text-lg "></i>
+                </a>
 
-                  <a
-                    href="#contact"
-                    className="flex items-center gap-1 md:gap-2 rounded-xl border-2 border-zinc-900 bg-[#FFE89A] px-2 md:px-4 py-2 text-sm font-bold text-zinc-900 transition-all duration-200 hover:-translate-y-1 hover:bg-[#FACC15] hover:shadow-[3px_3px_0px_#18181b]"
-                  >
+                <a
+                    href="/cv.pdf"
+                    download
+                    aria-label="CV"
+                    className="
+                    flex h-11 w-full gap-2 lg:gap-4 items-center justify-center font-bold
+                    rounded-xl border-2 border-zinc-900 text-zinc-900
+                    bg-[#FFE89A]  text-2xl
+                    shadow-[3px_3px_0px_#18181b]
+                    transition-transform hover:-translate-y-1 hover:bg-[#FACC15]
+                    "
+                >
                     <span className="text-sm md:text-base">Contact Me</span>
-                    <i className="ri-arrow-right-up-line text-sm md:text-lg"></i>
-                  </a>
+                    <i className="ri-arrow-right-up-line text-sm md:text-lg "></i>
+                </a>
               </div>
 
-              <div className="flex flex-wrap items-center mt-5 md:mt-0 gap-1.5 md:gap-3">
+              <div className="flex flex-wrap items-center mt-5 md:mt-0 gap-2 md:gap-3">
                   <a
                     href="https://wa.me/6281315225350"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex rounded-xl border-2 border-zinc-900 bg-[#A8F0C6] text-zinc-900 px-2 py-1 md:px-4 md:py-2 transition-all duration-200 hover:-translate-y-1 hover:bg-[#25D366] hover:shadow-[3px_3px_0px_#18181b]"
-                  >
-                    <i className="ri-whatsapp-fill text-xl md:text-2xl"></i>
-                  </a>
+                    aria-label="What's App"
+                    className="
+                    flex h-11 w-11 items-center justify-center
+                    rounded-xl border-2 border-zinc-900
+                    bg-[#A8F0C6] text-2xl
+                    shadow-[3px_3px_0px_#18181b]
+                    transition-transform hover:-translate-y-1 hover:bg-[#25D366]
+                    "
+                >
+                    <i className="ri-whatsapp-fill text-zinc-900"></i>
+                </a>
 
-                  <a
+                 <a
                     href="https://www.linkedin.com/in/nisaul-husna"
                     target="_blank"
                     rel="noopener noreferrer"
-                    download
-                    className="flex rounded-xl border-2 border-zinc-900 bg-[#B9E2FF] text-zinc-900 px-2 py-1 md:px-4 md:py-2 transition-all duration-200 hover:-translate-y-1 hover:bg-[#60A5FA] hover:shadow-[3px_3px_0px_#18181b]"
-                  >
-                    <i className="ri-linkedin-fill text-xl md:text-2xl"></i>
-                  </a>
+                    aria-label="LinkedIn"
+                    className="
+                    flex h-11 w-11 items-center justify-center
+                    rounded-xl border-2 border-zinc-900
+                    bg-[#B9E0FF] text-2xl
+                    shadow-[3px_3px_0px_#18181b]
+                    transition-transform hover:-translate-y-1 hover:bg-[#60A5FA]
+                    "
+                >
+                    <i className="ri-linkedin-fill text-zinc-900"></i>
+                </a>
 
-                  <a
+                <a
                     href="https://github.com/nisaulUna"
                     target="_blank"
                     rel="noopener noreferrer"
-                    download
-                    className="flex rounded-xl border-2 border-zinc-900 bg-[#D9C5FF] text-zinc-900 px-2 py-1 md:px-4 md:py-2 transition-all duration-200 hover:-translate-y-1 hover:bg-[#A78BFA] hover:shadow-[3px_3px_0px_#18181b]"
-                  >
-                    <i className="ri-github-fill text-xl md:text-2xl"></i>
-                  </a>
+                    aria-label="GitHub"
+                    className="
+                    flex h-11 w-11 items-center justify-center
+                    rounded-xl border-2 border-zinc-900
+                    bg-[#D9C5FF] text-2xl
+                    shadow-[3px_3px_0px_#18181b]
+                    transition-transform hover:-translate-y-1 hover:bg-[#A78BFA]
+                    "
+                >
+                    <i className="ri-github-fill text-zinc-900"></i>
+                </a>
               </div>
             </div>
 
@@ -169,10 +204,16 @@ function App() {
                 href="https://pddikti.kemdiktisaintek.go.id/detail-mahasiswa/CCcDJC2DndWKrMZhSJwGZeuERJxrQLdQxyIzWmXFs3oI-pAROHeIlLfGT_kOtvqF5xcVWA=="
                 target="_blank"
                 rel="noopener noreferrer"
-                className="float-right ml-3 mb-2 flex items-center gap-2 rounded-xl border-2 border-zinc-900 bg-zinc-100 px-3 md:px-4 py-2 text-sm font-bold text-zinc-900 transition-all duration-200 hover:-translate-y-1 hover:bg-[#E4E4E7] hover:shadow-[3px_3px_0px_#18181b]"
+                className="
+                    float-right flex h-11 w-11 md:w-auto md:p-3 gap-2 items-center justify-center
+                    rounded-xl border-2 border-zinc-900
+                    bg-zinc-100 text-2xl text-zinc-900 font-semibold
+                    shadow-[3px_3px_0px_#18181b]
+                    transition-transform hover:-translate-y-1 hover:bg-[#E4E4E7]
+                    "
               >
-                <span className="hidden md:inline">PDDIKTI</span>
-                <i className="ri-arrow-right-up-line text-xl md:text-2xl"></i>
+                <span className="hidden md:inline text-sm font-bold">PDDIKTI</span>
+                <i className="ri-arrow-right-up-line"></i>
               </a>
 
               <h1 className="text-xl md:text-2xl font-extrabold text-zinc-900">
@@ -190,7 +231,7 @@ function App() {
             </div>
 
             <div className="flex flex-wrap gap-3 lg:gap-5 w-full my-6">
-              <div className="flex flex-1 items-center rounded-2xl border-[3px] border-zinc-900 bg-[#FFFFF0] shadow-[2px_3px_0px_#18181b] p-3 lg:px-5 gap-3 lg:gap-5">
+              <div className="flex flex-1 items-center rounded-2xl border-[3px] border-zinc-900 bg-[#FFFFF0] p-3 lg:px-5 gap-3 lg:gap-5">
                 <div>
                   <i className="ri-graduation-cap-fill text-2xl rounded-md border-2 border-zinc-900 text-zinc-900 p-1"></i>
                 </div>
@@ -204,7 +245,7 @@ function App() {
                 </div>
               </div>
 
-              <div className="flex flex-1 items-center rounded-2xl border-[3px] border-zinc-900 bg-[#FFFFF0] shadow-[2px_3px_0px_#18181b] p-3 lg:px-5 gap-3 lg:gap-5">
+              <div className="flex flex-1 items-center rounded-2xl border-[3px] border-zinc-900 bg-[#FFFFF0] p-3 lg:px-5 gap-3 lg:gap-5">
                 <div>
                   <i className="ri-book-open-line text-2xl p-1 rounded-md border-2 border-zinc-900 text-zinc-900"></i>
                 </div>
@@ -218,7 +259,7 @@ function App() {
                 </div>
               </div>
 
-              <div className="flex flex-1 items-center rounded-2xl border-[3px] border-zinc-900 bg-[#FFFFF0] shadow-[2px_3px_0px_#18181b] p-3 lg:px-5 gap-3 lg:gap-5">
+              <div className="flex flex-1 items-center rounded-2xl border-[3px] border-zinc-900 bg-[#FFFFF0] p-3 lg:px-5 gap-3 lg:gap-5">
                 <div>
                   <i className="ri-medal-fill text-2xl p-1 rounded-md border-2 border-zinc-900 text-zinc-900"></i>
                 </div>
@@ -266,7 +307,7 @@ function App() {
           </div>
 
           <div className="grid md:grid-cols-3 lg:grid-cols-1 lg:grid-rows-3 bg-[#FFE89A] rounded-b-2xl  lg:rounded-r-2xl lg:rounded-l-none p-7 lg:p-10 gap-3 lg:gap-5">
-            <div className="flex rounded-2xl border-[3px] border-zinc-900 matcha-gradient shadow-[2px_3px_0px_#18181b] p-3 lg:px-5 gap-3 lg:gap-5">
+            <div className="flex rounded-2xl border-[3px] border-zinc-900 matcha-gradient p-3 lg:px-5 gap-3 lg:gap-5">
               <div>
                 <i className="ri-briefcase-4-fill text-2xl p-1 rounded-md border-2 border-zinc-900 text-zinc-900"></i>
               </div>
@@ -286,7 +327,7 @@ function App() {
               </div>
             </div>
 
-            <div className="flex rounded-2xl border-[3px] border-zinc-900 matcha-gradient shadow-[2px_3px_0px_#18181b] p-3 lg:px-5 gap-3 lg:gap-5">
+            <div className="flex rounded-2xl border-[3px] border-zinc-900 matcha-gradient p-3 lg:px-5 gap-3 lg:gap-5">
               <div>
                 <i className="ri-article-fill text-2xl p-1 rounded-md border-2 border-zinc-900 text-zinc-900"></i>
               </div>
@@ -306,7 +347,7 @@ function App() {
               </div>
             </div>
 
-            <div className="flex rounded-2xl border-[3px] border-zinc-900 matcha-gradient shadow-[2px_3px_0px_#18181b] p-3 lg:px-5 gap-3 lg:gap-5">
+            <div className="flex rounded-2xl border-[3px] border-zinc-900 matcha-gradient p-3 lg:px-5 gap-3 lg:gap-5">
               <div>
                 <i className="ri-apps-2-fill text-2xl p-1 rounded-md border-2 border-zinc-900 text-zinc-900"></i>
               </div>
@@ -448,68 +489,59 @@ function App() {
               </div>
             </div>
           ))}
-          {selectedIndex !== null && (
-            <div
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-5"
-              onClick={() => setSelectedIndex(null)}
-            >
-
-              {/* CLOSE */}
-              <button
+          {selectedIndex !== null &&
+            createPortal(
+              <div
+                className="fixed inset-0 z-[9999] flex h-dvh w-screen items-center justify-center bg-black/90 p-3 md:p-5"
                 onClick={() => setSelectedIndex(null)}
-                className="absolute top-5 right-7 text-white text-4xl font-bold cursor-pointer"
               >
-                ×
-              </button>
+                {/* CLOSE */}
+                <button
+                  onClick={() => setSelectedIndex(null)}
+                  className="absolute right-5 top-5 z-20 text-4xl text-white cursor-pointer"
+                >
+                  ×
+                </button>
 
+                {/* PREVIOUS */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedIndex((prev) =>
+                      prev === 0 ? selectedPhotos.length - 1 : prev - 1
+                    );
+                  }}
+                  className="absolute left-2 md:left-10 z-20 text-5xl text-white cursor-pointer"
+                >
+                  ‹
+                </button>
 
-              {/* PREVIOUS */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
+                {/* IMAGE */}
+                <img
+                  src={selectedPhotos[selectedIndex]}
+                  alt="Experience Preview"
+                  onClick={(e) => e.stopPropagation()}
+                  className="max-h-[85dvh] max-w-[90vw] object-contain rounded-lg"
+                />
 
-                  setSelectedIndex((prev) =>
-                    prev === 0
-                      ? selectedPhotos.length - 1
-                      : prev - 1
-                  );
-                }}
-                className="absolute left-5 md:left-10 text-white text-6xl cursor-pointer"
-              >
-                ‹
-              </button>
-
-
-              {/* FOTO BESAR */}
-              <img
-                src={selectedPhotos[selectedIndex]}
-                alt="Experience"
-                onClick={(e) => e.stopPropagation()}
-                className="max-w-[80vw] max-h-[85vh] object-contain rounded-xl border-2 border-white"
-              />
-
-
-              {/* NEXT */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-
-                  setSelectedIndex((prev) =>
-                    prev === selectedPhotos.length - 1
-                      ? 0
-                      : prev + 1
-                  );
-                }}
-                className="absolute right-5 md:right-10 text-white text-6xl cursor-pointer"
-              >
-                ›
-              </button>
-
-            </div>
-          )}
+                {/* NEXT */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedIndex((prev) =>
+                      prev === selectedPhotos.length - 1 ? 0 : prev + 1
+                    );
+                  }}
+                  className="absolute right-2 md:right-10 z-20 text-5xl text-white cursor-pointer"
+                >
+                  ›
+                </button>
+              </div>,
+              document.body
+            )}
         </div>
 
-        <div className="inline-flex items-center gap-2 rounded-xl border-3 border-zinc-900 matcha-gradient px-4 py-2 text-sm font-bold text-zinc-900 shadow-[2px_3px_0px_#18181b] mt-10">
+        <div className="inline-flex items-center gap-2 rounded-xl border-3 border-zinc-900 matcha-gradient px-4 py-2 text-sm font-bold text-zinc-900 shadow-[2px_3px_0px_#18181b] mt-10" id="publication">
             <i className="ri-article-fill text-2xl"></i>PUBLICATIONS     
         </div>
 
@@ -548,10 +580,16 @@ function App() {
                   href={publication.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute right-5 top-5 z-20 ml-3 mb-2 flex items-center gap-2 rounded-xl border-2 border-zinc-900 bg-zinc-100 px-3 md:px-4 py-2 text-sm font-bold text-zinc-900 transition-all duration-200 hover:-translate-y-1 hover:bg-[#E4E4E7] hover:shadow-[3px_3px_0px_#18181b]"
+                  className="
+                    absolute right-5 top-5 z-20 flex h-11 w-11 md:w-auto md:px-3 gap-2 items-center justify-center
+                    rounded-xl border-2 border-zinc-900
+                    bg-zinc-100 text-zinc-900 font-semibold
+                    shadow-[3px_3px_0px_#18181b]
+                    transition-transform hover:-translate-y-1 hover:bg-[#E4E4E7]
+                    "
                 >
-                  <span className="hidden md:inline">READ</span>
-                  <i className="ri-arrow-right-up-line text-xl md:text-2xl"></i>
+                  <span className="hidden md:inline text-sm font-bold">READ</span>
+                  <i className="ri-arrow-right-up-line text-2xl"></i>
                 </a>
 
                 {/* PUBLICATION INFO */}
@@ -739,15 +777,16 @@ function App() {
         </div>
       </div>
 
-      {selectedProjectIndex !== null && (
+      {selectedProjectIndex !== null &&
+      createPortal(
         <div
-          className=" fixed inset-0 z-[999] flex items-center justify-center bg-black/85 p-5" onClick={() => setSelectedProjectIndex(null)}
+          className="fixed inset-0 z-[9999] flex h-dvh w-screen items-center justify-center bg-black/90 p-3 md:p-5"
+          onClick={() => setSelectedProjectIndex(null)}
         >
-
           {/* CLOSE */}
           <button
             onClick={() => setSelectedProjectIndex(null)}
-            className=" absolute right-7 top-5 text-4xl font-bold text-white cursor-pointer"
+            className="absolute right-5 top-5 z-20 text-4xl text-white cursor-pointer"
           >
             ×
           </button>
@@ -756,48 +795,46 @@ function App() {
           <button
             onClick={(e) => {
               e.stopPropagation();
-
               setSelectedProjectIndex((prev) =>
                 prev === 0
                   ? selectedProjectPhotos.length - 1
                   : prev - 1
               );
             }}
-            className=" absolute left-5 md:left-10 text-6xl text-white cursor-pointer"
+            className="absolute left-2 md:left-10 z-20 text-5xl text-white cursor-pointer"
           >
             ‹
           </button>
-
 
           {/* IMAGE */}
           <img
             src={selectedProjectPhotos[selectedProjectIndex]}
             alt="Project Preview"
             onClick={(e) => e.stopPropagation()}
-            className="max-h-[85vh] max-w-[85vw] rounded-xl border-2 border-white object-contain"
+            className="max-h-[85dvh] max-w-[90vw] object-contain rounded-lg"
           />
 
           {/* NEXT */}
           <button
             onClick={(e) => {
               e.stopPropagation();
-
               setSelectedProjectIndex((prev) =>
                 prev === selectedProjectPhotos.length - 1
                   ? 0
                   : prev + 1
               );
             }}
-            className=" absolute right-5 md:right-10 text-6xl text-white cursor-pointer"
+            className="absolute right-2 md:right-10 z-20 text-5xl text-white cursor-pointer"
           >
             ›
           </button>
 
           {/* COUNTER */}
-          <div className=" absolute bottom-5 rounded-lg bg-white px-4 py-2 text-sm font-bold text-zinc-900">
+          <div className="absolute bottom-5 rounded-lg bg-white px-4 py-2 text-sm font-bold text-zinc-900">
             {selectedProjectIndex + 1} / {selectedProjectPhotos.length}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
       </ScrollReveal>
 
