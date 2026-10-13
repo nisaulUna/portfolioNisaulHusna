@@ -6,7 +6,7 @@ import 'animate.css';
 import "remixicon/fonts/remixicon.css";
 
 import App from './App.jsx'
-import Navbar from './components/navbar.jsx'
+import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import PreLoader from './components/PreLoader.jsx';
 
