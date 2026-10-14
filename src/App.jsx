@@ -30,7 +30,7 @@ function App() {
                   Know Me
                 </span>
 
-                <span className="flex items-center gap-1 rounded-xl border-2 border-zinc-900 bg-[#FFE89A] px-3 py-1 text-sm md:text-lg font-bold text-zinc-900 shadow-[2px_2px_0px_#18181b] transition-transform hover:-translate-y-1 hover:bg-[#FACC15]">
+                <span className="flex items-center gap-1 rounded-xl border-2 border-zinc-900 bg-[#FFE89A] px-3 py-1 text-sm md:text-lg font-bold text-zinc-900 shadow-[2px_2px_0px_#18181b] transition-transform hover:-translate-y-1 hover:bg-[#FACC15] bounce-interval">
                   Explore More
                   <i className="ri-arrow-down-line"></i>
                 </span>
@@ -98,8 +98,7 @@ function App() {
                 </a>
 
                 <a
-                    href="/cv.pdf"
-                    download
+                    href="#contact"
                     aria-label="CV"
                     className="
                     flex h-11 w-full gap-2 lg:gap-4 items-center justify-center font-bold
@@ -110,7 +109,7 @@ function App() {
                     "
                 >
                     <span className="text-sm md:text-base">Contact Me</span>
-                    <i className="ri-arrow-right-up-line text-sm md:text-lg "></i>
+                    <i className="ri-arrow-right-up-line text-sm md:text-lg"></i>
                 </a>
               </div>
 
