@@ -263,7 +263,7 @@ export const listProject = [
     {
     id: 5,
     type: "GROUP PROJECT",
-    title: "Quack",
+    title: "Quake",
     year : "2024",
     desc: "A mobile UI prototype that provides disaster information, emergency alerts, and an SOS feature for requesting help during emergencies.",
     link: "https://www.figma.com/proto/nPQd29r4aoJyYXPWb5rqkY/Quack?page-id=0%3A1&node-id=99-56&p=f&viewport=389%2C458%2C0.03&t=a96HYS6RhEeiEQnm-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=659%3A1269&show-proto-sidebar=1",
