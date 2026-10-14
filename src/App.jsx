@@ -86,7 +86,7 @@ function App() {
                     download="CV_Nisaul_Husna.pdf"
                     aria-label="CV"
                     className="
-                    flex h-11 w-full gap-2 md:px-2 lg:gap-4 items-center justify-center font-bold
+                    flex h-11 w-full gap-2 md:px-2 items-center justify-center font-bold
                     rounded-xl border-2 border-zinc-900 text-zinc-900
                     bg-pink-200 text-2xl
                     shadow-[3px_3px_0px_#18181b]
@@ -101,7 +101,7 @@ function App() {
                     href="#contact"
                     aria-label="CV"
                     className="
-                    flex h-11 w-full gap-2 lg:gap-4 items-center justify-center font-bold
+                    flex h-11 w-full gap-2 items-center justify-center font-bold
                     rounded-xl border-2 border-zinc-900 text-zinc-900
                     bg-yellow-100 text-2xl
                     shadow-[3px_3px_0px_#18181b]
