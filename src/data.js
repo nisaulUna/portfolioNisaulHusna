@@ -333,7 +333,7 @@ export const listSkills = [
     items: [
       { name: "Git", icon: "devicon-git-plain colored" },
       { name: "GitHub", icon: "devicon-github-original" },
-      { name: "GitLab", icon: "devicon-gitlab-original" },
+      { name: "GitLab", icon: "devicon-gitlab-plain" },
       { name: "Postman", icon: "devicon-postman-plain colored" },
       { name: "VS Code", icon: "devicon-vscode-plain colored" },
       { name: "Android Studio", icon: "devicon-androidstudio-plain colored" },
