@@ -58,7 +58,9 @@ function App() {
                 sequence={[
                   "Web Developer",
                   2000,
-                  "AI Engineer",
+                  "Frontend Developer",
+                  2000,
+                  "Mobile Developer",
                   2000,
                   "Software Engineer",
                   2000,
@@ -172,7 +174,7 @@ function App() {
             <img
               src={Image.Foto}
               alt="Profile"
-              className="absolute -bottom-1.25 -left-8 z-10 h-[110%] w-auto max-w-none object-contain object-bottom"
+              className="absolute lg:-bottom-0.25 xl:-bottom-1.25 xl:-left-8 xl:z-10 xl:h-[110%] xl:w-auto lg:w-70 max-w-none object-contain object-bottom"
             />
           </div>
         </div>
@@ -196,7 +198,7 @@ function App() {
           <hr className="flex-1 border-t border-zinc-900 my-6" />
         </div>
 
-        <div className="rounded-2xl border-[3px] border-zinc-900 bg-white shadow-[4px_5px_0px_#18181b] grid lg:grid-cols-[2fr_1fr]">
+        <div className="rounded-2xl border-[3px] border-zinc-900 bg-white shadow-[4px_5px_0px_#18181b] grid xl:grid-cols-[2fr_1fr]">
           <div className="p-7 md:p-10">
             <div className="flow-root">
               <a
@@ -305,8 +307,8 @@ function App() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 lg:grid-cols-1 lg:grid-rows-3 bg-[#FFE89A] rounded-b-2xl  lg:rounded-r-2xl lg:rounded-l-none p-7 lg:p-10 gap-3 lg:gap-5">
-            <div className="flex rounded-2xl border-[3px] border-zinc-900 matcha-gradient p-3 lg:px-5 gap-3 lg:gap-5">
+          <div className="grid md:grid-cols-3 xl:grid-cols-1 xl:grid-rows-3 bg-[#FFE89A] rounded-b-2xl  xl:rounded-r-2xl xl:rounded-l-none p-7 lg:p-10 gap-3 lg:gap-5">
+            <div className="flex items-center rounded-2xl border-[3px] border-zinc-900 matcha-gradient p-3 lg:px-5 gap-3 lg:gap-5">
               <div>
                 <i className="ri-briefcase-4-fill text-2xl p-1 rounded-md border-2 border-zinc-900 text-zinc-900"></i>
               </div>
@@ -316,7 +318,7 @@ function App() {
                     EXPERIENCE
                   </span>
                   <a href="#experience" className="text-sm font-semibold text-zinc-500 underline hover:text-blue-400">
-                    <span className="hidden lg:inline">View detail</span>
+                    <span className="hidden xl:inline">View detail</span>
                     <i className="ri-arrow-right-up-line text-base"></i>
                   </a>
                 </div>
@@ -326,7 +328,7 @@ function App() {
               </div>
             </div>
 
-            <div className="flex rounded-2xl border-[3px] border-zinc-900 matcha-gradient p-3 lg:px-5 gap-3 lg:gap-5">
+            <div className="flex items-center rounded-2xl border-[3px] border-zinc-900 matcha-gradient p-3 lg:px-5 gap-3 lg:gap-5">
               <div>
                 <i className="ri-article-fill text-2xl p-1 rounded-md border-2 border-zinc-900 text-zinc-900"></i>
               </div>
@@ -336,7 +338,7 @@ function App() {
                     PUBLICATIONS
                   </span>
                   <a href="#publication" className="text-sm font-semibold text-zinc-500 underline hover:text-blue-400">
-                    <span className="hidden lg:inline">View detail</span>
+                    <span className="hidden xl:inline">View detail</span>
                     <i className="ri-arrow-right-up-line text-base"></i>
                   </a>
                 </div>
@@ -346,7 +348,7 @@ function App() {
               </div>
             </div>
 
-            <div className="flex rounded-2xl border-[3px] border-zinc-900 matcha-gradient p-3 lg:px-5 gap-3 lg:gap-5">
+            <div className="flex items-center rounded-2xl border-[3px] border-zinc-900 matcha-gradient p-3 lg:px-5 gap-3 lg:gap-5">
               <div>
                 <i className="ri-apps-2-fill text-2xl p-1 rounded-md border-2 border-zinc-900 text-zinc-900"></i>
               </div>
@@ -356,12 +358,12 @@ function App() {
                     PROJECTS
                   </span>
                   <a href="#projects" className="text-sm font-semibold text-zinc-500 underline hover:text-blue-400">
-                    <span className="hidden lg:inline">View detail</span>
+                    <span className="hidden xl:inline">View detail</span>
                     <i className="ri-arrow-right-up-line text-base"></i>
                   </a>
                 </div>
                 <span className="text-sm font-semibold tracking-widest text-zinc-900">
-                  6 Projects
+                  5 Projects
                 </span>
               </div>
             </div>
