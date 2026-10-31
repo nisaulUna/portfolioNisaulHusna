@@ -273,7 +273,7 @@ const Footer = () => {
                 <div className="grid grid-cols-[1.5fr_1.5fr] justify-between">
                     <div>
                         <h3 className="text-xl font-extrabold text-zinc-900">
-                            Portfolio<span className="text-pink-500">.</span>
+                            Portfolio<span className="text-pink-500">.</span>Nisa
                         </h3>
 
                         <p className="mt-1 text-xs text-zinc-700">

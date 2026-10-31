@@ -155,7 +155,7 @@ const Navbar = () => {
             </div>
 
             <h1 className="text-xl font-extrabold tracking-tight text-zinc-900">
-              Nisaul.Husna
+              Portfolio<span className="text-pink-500">.</span>Nisa
             </h1>
           </a>
 
