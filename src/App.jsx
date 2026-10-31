@@ -84,8 +84,8 @@ function App() {
             <div className="md:flex items-center gap-2 mt-5 justify-between">
               <div className="grid grid-cols-2 items-center gap-2 md:gap-3">
                 <a
-                    href="/CV_NISAUL_HUSNA.pdf"
-                    download="CV_Nisaul_Husna.pdf"
+                    href="/Nisaul_Husna_CV.pdf"
+                    download="Nisaul_Husna_CV.pdf"
                     aria-label="CV"
                     className="
                     flex h-11 w-full gap-2 md:px-2 items-center justify-center font-bold
