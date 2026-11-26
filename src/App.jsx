@@ -84,7 +84,7 @@ function App() {
             <div className="md:flex items-center gap-2 mt-5 justify-between">
               <div className="grid grid-cols-2 items-center gap-2 md:gap-3">
                 <a
-                    href="/Nisaul_Husna_CV.pdf"
+                    href={`${import.meta.env.BASE_URL}Nisaul_Husna_CV.pdf`}
                     download="Nisaul_Husna_CV.pdf"
                     aria-label="CV"
                     className="
