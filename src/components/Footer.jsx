@@ -267,7 +267,7 @@ const Footer = () => {
 
                     <a href="#skill" className="underline hover:text-zinc-600">
                         Skills
-                    </a>
+                    </a>-
                 </div>
 
                 <div className="grid grid-cols-[1.5fr_1.5fr] justify-between">
